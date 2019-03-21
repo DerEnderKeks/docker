@@ -32,7 +32,7 @@ RUN cd /tmp \
   && rm -Rf /tmp/*
 
 #Create an octoprint user
-RUN useradd -ms /bin/bash octoprint && usermod -aG 18 octoprint
+RUN useradd -ms /bin/bash octoprint && groupadd -g 18 newdialout && usermod -aG newdialout octoprint
 RUN chown octoprint:octoprint /opt/octoprint
 USER octoprint
 #This fixes issues with the volume command setting wrong permissions
